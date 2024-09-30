@@ -176,6 +176,8 @@ class Sudoku {
                 console.log(i+"-"+j);
             }
         }
+        //this.tileSelected = this;
+        this.tileSelected = event.target;
         
         let coords = this.tileSelected.id.split("-");
         let row = parseInt(coords[0]);
@@ -192,8 +194,7 @@ class Sudoku {
                     document.getElementById(i+"-"+j).classList.add("highlight");
                 }
             }
-        //this.tileSelected = this;
-        this.tileSelected = event.target;
+        document.tileSelected.classList.remove("highlight");
         this.tileSelected.classList.add("tile-selected");
     }
 
