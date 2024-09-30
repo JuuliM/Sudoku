@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sudoku</title>
+
+        <link rel="stylesheet" href="sudoku.css">
+    </head>
+    <body>
+        <h1>Sudoku</h1>
+        <hr>
+
+        <div id="sudoku-board"></div>
+        <br>
+        <div id="digits"></div>
+        <br>
+        <button id="solve-button">Solve</button>
+
+        <script src="sudoku.js"></script>
+        <script>
+            let game = new Sudoku(document.getElementById("sudoku-board"));
+            game.makeGrid();
+            //fill the grid with numbers one to nine
+            game.populateGrid()
+            // current number 30 = number of nodes to be left empty in the grid for the player to fill
+            game.removeNumbers(30);
+            game.setGame();
+
+            document.getElementById("solve-button").addEventListener('click', function() {
+                game.solve();
+            });
+        </script>
+    </body>
+</html>
