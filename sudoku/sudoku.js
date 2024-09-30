@@ -176,9 +176,6 @@ class Sudoku {
                 console.log(i+"-"+j);
             }
         }
-        //this.tileSelected = this;
-        this.tileSelected = event.target;
-        this.tileSelected.classList.add("tile-selected");
         
         let coords = this.tileSelected.id.split("-");
         let row = parseInt(coords[0]);
@@ -187,14 +184,17 @@ class Sudoku {
             document.getElementById(row+"-"+i).classList.add("highlight");
             document.getElementById(i+"-"+col).classList.add("highlight");
             }
-                //variables to determine the 3x3 subgrid
-                const startRow = Math.floor(row/3)*3;
-                const startColumn = Math.floor(col/3)*3;
-                for (let i = startRow; i < startRow+3; i++) {
-                    for (let j = startColumn; j < startColumn+3; j++) {
-                        document.getElementById(i+"-"+j).classList.add("highlight");
-                        }
-                    }
+            //variables to determine the 3x3 subgrid
+            const startRow = Math.floor(row/3)*3;
+            const startColumn = Math.floor(col/3)*3;
+            for (let i = startRow; i < startRow+3; i++) {
+                for (let j = startColumn; j < startColumn+3; j++) {
+                    document.getElementById(i+"-"+j).classList.add("highlight");
+                }
+            }
+        //this.tileSelected = this;
+        this.tileSelected = event.target;
+        this.tileSelected.classList.add("tile-selected");
     }
 
     // After selecting tile, select number below and it is added to the tile.
